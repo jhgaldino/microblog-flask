@@ -1,0 +1,9 @@
+# Git and version control
+.git/
+.gitignore
+
+# Build artifacts and cache
+__pycache__/
+
+# Environment files
+.env
