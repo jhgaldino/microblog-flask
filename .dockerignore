@@ -4,6 +4,3 @@
 
 # Build artifacts and cache
 __pycache__/
-
-# Environment files
-.env
