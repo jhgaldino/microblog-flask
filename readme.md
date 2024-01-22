@@ -1,1 +1,5 @@
-um microblog efeito com python, flask, sqlite e docker
+um site de microblog 
+python, 
+flask, 
+sqlite e 
+docker
