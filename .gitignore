@@ -1,21 +1,43 @@
 # .dockerignore
 
-# SQLite database
-database.db
+# Arquivos de banco de dados
+*.db
+*.sqlite3
 
-# Byte-compiled / optimized / DLL files
+# Arquivos compilados Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.so
+*$py.class
 
-# Virtualenv
-*.venv
+# Ambientais virtuais
 venv/
+.venv/
+env/
 
-# IDEs
-.idea/
-.vscode/
-
-# Environments
+# Arquivos de ambiente
 .env
+.env.local
+.env.*
+
+# Logs e arquivos de depuração
+*.log
+logs/
+debug.log
+
+# Configurações de IDEs e editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos temporários
+*.tmp
+*.temp
+*~
+
+# Arquivos de backup
+*.bak
+*.orig
+
+# Migrations
+migrations/
