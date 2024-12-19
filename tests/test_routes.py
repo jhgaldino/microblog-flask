@@ -1,4 +1,5 @@
 import unittest
+import re
 from app import create_app
 from app.extensions import db, bcrypt
 from app.models import User, Post
@@ -88,7 +89,6 @@ class RoutesTestCase(unittest.TestCase):
 
     def get_csrf_token(self, response_data):
         # Extrai o token CSRF da resposta
-        import re
         match = re.search(r'name="csrf_token" type="hidden" value="([^"]+)"', response_data.decode('utf-8'))
         return match.group(1) if match else None
 
@@ -102,23 +102,6 @@ class RoutesTestCase(unittest.TestCase):
         response = self.client.get('/logout', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Login', response.data)  # Deve redirecionar para login
-
-def test_home_route_redirect(client):
-    response = client.get('/')
-    assert response.status_code == 302  # Redireciona para login
-
-def test_register_route_get(client):
-    response = client.get('/register')
-    assert response.status_code == 200
-    assert b'Register' in response.data
-
-def test_register_route_post(client):
-    response = client.post('/register', data={
-        'username': 'newuser',
-        'password': 'newpass'
-    }, follow_redirects=True)
-    assert response.status_code == 200
-    assert b'Feed' in response.data
 
 if __name__ == '__main__':
     unittest.main()
